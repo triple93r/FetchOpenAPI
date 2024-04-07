@@ -1,0 +1,74 @@
+﻿@model IEnumerable<GetAPIData.Entities.UserComments>
+
+
+@{
+    ViewData["Title"] = "GetSaveApiDispl";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid page-container">
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                @*<p>
+                    <a asp-action="Create">Create New</a>
+                </p> *@
+                <table id="datatable" class="table table-responsive table-wrapp">
+                    <thead>
+                        <tr>
+                            <th><input type="text"  />
+                                @Html.DisplayNameFor(model => model.postId).ToUpper()
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.id).ToUpper()
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.name).ToUpper()
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.email).ToUpper()
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.body).ToUpper()
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.postId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.body)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "GetEditApi", new { id = item.slno }) |
+                                    @Html.ActionLink("Details", "Details", new { id=item.slno }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id=item.slno })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div> <!-- end row-->
+
+
+    </div> <!-- container-fluid -->
+</div>

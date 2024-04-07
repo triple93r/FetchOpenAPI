@@ -1,0 +1,91 @@
+﻿@model GetAPIData.Entities.UserComments
+@using GetAPIData.Entities;
+
+@{
+    ViewData["Title"] = "GetEditApi";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+<style>
+    textarea {
+        resize: none; /* Disable resizing */
+        overflow: hidden; /* Hide overflow */
+        min-height: 50px; /* Set minimum height */
+        width: 100%; /* Set width to 100% */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        padding: 10px; /* Add padding */
+        font-size: 16px; /* Set font size */
+        border: solid 1px #dce1ef;
+        background-color: #f1f5ff;
+    }
+
+    textarea:focus{
+            border: 1px solid #adb9f4!important;
+            background-color: #fff!important;
+    }
+
+</style>
+<div class="page-content">
+    <div class="container-fluid page-container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form asp-action="GetEditApi" name="form1" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-group">
+                                          <label asp-for="postId" class="control-label">Post Id</label>
+                                        <input asp-for="postId" name="postId" value="@Model.postId" type="text" class="form-control" />
+                                        <span asp-validation-for="postId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="slno" asp-for="slno" id="slno" value=@Model.slno />
+                                <input type="hidden" name="id" asp-for="id" id="slno3" value=@Model.id />
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label asp-for="name" class="control-label">Name</label>
+                                        <input type="text" asp-for="name" name="name" value="@Model.name" class="form-control" />
+                                        <span asp-validation-for="name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label asp-for="email" class="control-label">Email</label>
+                                        <input asp-for="email" name="email" value="@Model.email" class="form-control" />
+                                        <span asp-validation-for="email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label asp-for="body" class="control-label">Content</label>
+                                        <textarea asp-for="body" name="body" id="autoExpandTextarea" oninput="autoExpand(this)" rows="1">@Model.body</textarea>
+                                        <span asp-validation-for="body" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group d-flex justify-content-between">
+                                        <a asp-action="Index">Back to List</a>
+                                        <input type="submit" value="Save" class="btn btn-primary right" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    function autoExpand(textarea) {
+        textarea.style.height = 'auto'; // Reset height to auto
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to match the scroll height
+    }
+</script>

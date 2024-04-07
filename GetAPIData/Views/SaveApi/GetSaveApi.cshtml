@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "GetSaveApi";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid page-container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card dash-card">
+                    <div class="card-body">
+                        <h4 class="mb-1 mt-1">
+                            @if (ViewBag.ErrorMessage!=null)
+                            {
+                                @ViewBag.ErrorMessage
+                            }
+                        </h4>
+                        <p class="text-muted mb-0">Home Page</p>
+                    </div>
+                </div>
+            </div> <!-- end col-->
+
+            <div class="col-lg-12">
+                <div class="progress progress-xl animated-progess mb-4 p-1">
+                    <div class="progress-bar bg-cstm-blue" role="progressbar" style="width: 95%" aria-valuenow="25"
+                         aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Date Range</legend>
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="input-daterange input-group" id="datepicker6" data-date-format="dd M, yyyy" data-date-autoclose="true" data-provide="datepicker" data-date-container='#datepicker6'>
+                                <input type="text" class="form-control" name="start" placeholder="Start Date" />
+                                <input type="text" class="form-control" name="end" placeholder="End Date" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-2 submit-btn-col">
+                            <button type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+        </div> <!-- end row-->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex align-items-center justify-content-between">
+                                    <h4 class="mb-0">Dashboard</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Minible</a></li>
+                                            <li class="breadcrumb-item active">Dashboard</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <form method="post" action="SaveApiData">
+                                    <div>
+                                        <input type="text" id="geturl" name="geturl" class="form-control" value="" placeholder="Enter api url" />
+                                        <button type="submit" class="btn btn-outline-success m-2" id="btnSubmit1">Submit</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div> <!-- end row-->
+
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+
+    </div> <!-- container-fluid -->
+</div>
